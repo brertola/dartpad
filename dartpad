@@ -1,0 +1,72 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final List<String> nomes = ['Ana', 'Beto', 'Carlos'];
+
+  //----------------------------------------------------
+  // Declare aqui as variáveis que serão utilizadas:
+  
+  //-----------------------------------------------------
+  // Escreva aqui a função para descobrir o maior nome:
+  
+  //-----------------------------------------------------
+
+  @override
+  Widget build(BuildContext context) {
+    // Execute aqui abaixo a função ex: encontrarMaiorNome();
+      
+    //------------------------------------------------------
+
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text('Desafio'),
+          centerTitle: true,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Alunos: $nomes'),
+
+              Text('Total de alunos: ${nomes.length}'),
+
+              Text('Maior nome: ${nomes}'),
+
+              ElevatedButton(
+                onPressed: () {
+                  // Como o 'onclick'
+                  setState(() {
+                    nomes.add('Daniel');
+                  });
+                },
+                child: Text('Adicionar Aluno'),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    nomes.removeLast(); // <- Corrigir aqui
+                  });
+                },
+                child: Text('Remover um aluno'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
